@@ -29,9 +29,13 @@ class City(val name: String){
 }
 
 object City {
-  var cities = new ArrayBuffer[City]()
 
-  // TODO: Refactor this code
+  // TODO: There are better ways to handle this: Use a factory class so that these can all be immutable fields.
+  var cities = new ArrayBuffer[City]()
+  var numCities: Int = _
+  var loc1: String = _
+  var loc2: String = _
+
   def readInput(input: Reader): Unit = {
     val (counter, neighborNamesList) = createCites(input)
     makeNeighborConnections(counter, neighborNamesList)
@@ -41,11 +45,18 @@ object City {
     var counter = new mutable.HashMap[String, City]()
 
     val reader = new BufferedReader(input)
-    var line = reader.readLine()
+    val line = reader.readLine()
 
+    val words = line.trim.split(",")
+    numCities = words(0).toInt
+    loc1 = words(1).trim
+    loc2 = words(2).trim
+
+    // TODO: Can be changed to immutable, since number of cities are known.
     val neighborNamesList: ArrayBuffer[ArrayBuffer[String]] = ArrayBuffer()
 
-    while (line != null) {
+    1 to numCities foreach{ _ =>
+      val line = reader.readLine()
       val words = line.trim.split(",")
       if (words.size >= 3) {
         val name = words(0).trim
@@ -68,7 +79,6 @@ object City {
       } else if (words.size > 1) {
         throw new IllegalArgumentException("Input file has wrong format.")
       }
-      line = reader.readLine()
     }
     (counter, neighborNamesList)
   }
