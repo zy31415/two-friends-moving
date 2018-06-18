@@ -1,7 +1,5 @@
 package io.github.zy31415.components
 
-import scala.collection.mutable
-
 class Node(city: City){
 }
 
