@@ -29,17 +29,13 @@ class SearchTest extends FunSuite{
 
     assert(city0.neighbors.size == 1)
     assert(city0.neighbors.contains(city1))
-    assert(city0.neighbors(city1) == 1.0)
 
     assert(city1.neighbors.size == 2)
     assert(city1.neighbors.contains(city0))
-    assert(city1.neighbors(city0) == 1.0)
     assert(city1.neighbors.contains(city2))
-    assert(city1.neighbors(city2) == 1.0)
 
     assert(city2.neighbors.size == 1)
     assert(city2.neighbors.contains(city1))
-    assert(city2.neighbors(city1) == 1.0)
   }
 
   test("Read Input (in a line diff dis)") {
@@ -64,16 +60,13 @@ class SearchTest extends FunSuite{
 
     assert(city0.neighbors.size == 1)
     assert(city0.neighbors.contains(city1))
-    assert(city0.neighbors(city1) == 1.0)
 
     assert(city1.neighbors.size == 2)
     assert(city1.neighbors.contains(city0))
-    assert(city1.neighbors(city0) == 1.0)
     assert(city1.neighbors.contains(city2))
-    assert(city1.neighbors(city2) == 2.0)
 
     assert(city2.neighbors.size == 1)
     assert(city2.neighbors.contains(city1))
-    assert(city2.neighbors(city1) == 2.0)
+
   }
 }
