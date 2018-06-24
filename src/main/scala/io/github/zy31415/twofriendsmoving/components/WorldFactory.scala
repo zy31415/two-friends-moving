@@ -1,11 +1,11 @@
-package io.github.zy31415.components
+package io.github.zy31415.twofriendsmoving.components
 
 import java.io.{BufferedReader, Reader}
 
 import scala.collection.immutable
 import scala.collection.mutable.ArrayBuffer
 
-class GraphFactory {
+class WorldFactory {
   var numCities:Int = _
   var loc1: Int = _
   var loc2: Int = _
@@ -13,9 +13,9 @@ class GraphFactory {
   val cities: ArrayBuffer[City] = new ArrayBuffer()
   var nameToCityMap = immutable.HashMap[String, City]()
 
-  def readInput(input: Reader): Graph = {
+  def readInput(input: Reader): World = {
     createCites(input)
-    new Graph(cities.toArray, loc1, loc2)
+    new World(cities.toArray, loc1, loc2)
   }
 
   private def createCites(input: Reader): Unit = {

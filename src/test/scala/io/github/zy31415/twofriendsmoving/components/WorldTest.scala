@@ -1,11 +1,10 @@
-package io.github.zy31415.search
+package io.github.zy31415.twofriendsmoving.components
 
 import java.io.{ByteArrayInputStream, StringReader}
 
-import io.github.zy31415.components.GraphFactory
 import org.scalatest.FunSuite
 
-class SearchTest extends FunSuite{
+class WorldTest extends FunSuite{
 
   test("Read Input (in a line)") {
     val cities =
@@ -19,7 +18,7 @@ class SearchTest extends FunSuite{
 
     val reader = new StringReader(cities)
 
-    val graph = new GraphFactory().readInput(reader)
+    val graph = new WorldFactory().readInput(reader)
 
     assert(graph.cities.length == 3)
 
@@ -50,7 +49,7 @@ class SearchTest extends FunSuite{
 
     val reader = new StringReader(cities)
 
-    val graph = new GraphFactory().readInput(reader)
+    val graph = new WorldFactory().readInput(reader)
 
     assert(graph.cities.length == 3)
 
@@ -67,6 +66,5 @@ class SearchTest extends FunSuite{
 
     assert(city2.neighbors.size == 1)
     assert(city2.neighbors.contains(city1))
-
   }
 }

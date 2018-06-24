@@ -1,4 +1,4 @@
-package io.github.zy31415.components
+package io.github.zy31415.twofriendsmoving.components
 
 import scala.collection.immutable.HashSet
 
