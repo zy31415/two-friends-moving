@@ -2,7 +2,7 @@ package io.github.zy31415.search
 
 import java.io.{ByteArrayInputStream, StringReader}
 
-import io.github.zy31415.components.{City, GraphFactory, Node}
+import io.github.zy31415.components.GraphFactory
 import org.scalatest.FunSuite
 
 class SearchTest extends FunSuite{
