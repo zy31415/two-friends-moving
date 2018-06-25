@@ -25,11 +25,9 @@ class Search {
         return true
       }
       else {
-        for (next <- node.next()) {
-          if (!discovered.contains(next)) {
-            frontier.push(next)
-            discovered.add(next)
-          }
+        for (next <- node.next() if !discovered.contains(next)) {
+          frontier.push(next)
+          discovered.add(next)
         }
       }
     }
