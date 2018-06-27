@@ -1,8 +1,10 @@
 package io.github.zy31415.twofriendsmoving.components
 
-import scala.collection.immutable.HashSet
+import scala.collection.mutable
 
-class City(val name: String, val pos: (Double, Double), n: => HashSet[City]){
+
+class City(val name: String, val pos: (Double, Double), n: => mutable.HashSet[City]){
+  def this(name: String, pos: (Double, Double)) = this(name, pos, mutable.HashSet[City]())
 
   lazy val neighbors = n
 

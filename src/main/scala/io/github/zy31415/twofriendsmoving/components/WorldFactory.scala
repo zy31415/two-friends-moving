@@ -2,7 +2,7 @@ package io.github.zy31415.twofriendsmoving.components
 
 import java.io.{BufferedReader, Reader}
 
-import scala.collection.immutable
+import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 class WorldFactory {
@@ -11,7 +11,7 @@ class WorldFactory {
   var loc2: Int = _
 
   val cities: ArrayBuffer[City] = new ArrayBuffer()
-  var nameToCityMap = immutable.HashMap[String, City]()
+  var nameToCityMap = mutable.HashMap[String, City]()
 
   def readInput(input: Reader): World = {
     createCites(input)
@@ -53,8 +53,8 @@ class WorldFactory {
     (numCities, loc1Name, loc2Name)
   }
 
-  private def getNeighbors(neighborNames: Array[String]): immutable.HashSet[City] = {
-    var neighbors = new immutable.HashSet[City]()
+  private def getNeighbors(neighborNames: Array[String]): mutable.HashSet[City] = {
+    var neighbors = new mutable.HashSet[City]()
 
     neighborNames.foreach(
       neighbors += nameToCityMap(_)

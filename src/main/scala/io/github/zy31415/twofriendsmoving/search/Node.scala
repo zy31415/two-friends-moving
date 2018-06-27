@@ -20,18 +20,13 @@ class Node private (val city1: City, val city2: City, val cost: Double){
 
   def isGoal = city1 == city2
 
-  def next():List[Node] = {
-    var nodes = List[Node]()
-
+  def next() = {
     // scala: nested iteration
     for {
       c1 <- city1.neighbors
       dis1 = city1.distanceTo(c1) // mid-stream variable bindings
       c2 <- city2.neighbors
-    } {
-      val dis2 = city2.distanceTo(c2)
-      nodes = new Node(c1, c2, Math.max(dis1, dis2)) :: nodes
     }
-    nodes
+      yield new Node(c1, c2, Math.max(dis1, city2.distanceTo(c2)))
   }
 }

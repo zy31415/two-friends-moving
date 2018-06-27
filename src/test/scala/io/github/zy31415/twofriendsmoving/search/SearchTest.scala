@@ -1,7 +1,7 @@
 package io.github.zy31415.twofriendsmoving.search
 
-import java.io.{ByteArrayInputStream, StringReader}
-
+import java.io.{File, StringReader}
+import scala.io.Source
 import io.github.zy31415.twofriendsmoving.components.WorldFactory
 import org.scalatest.FunSuite
 
@@ -52,6 +52,18 @@ class SearchTest extends FunSuite {
         |2, 3, 0, 1, 3
         |3, 4, 0, 2
       """.stripMargin
+
+    val world = new WorldFactory().readInput(
+      new StringReader(cities)
+    )
+
+    val search = new Search()
+    assert(!search.search(world))
+    assert(search.goal == null)
+  }
+
+  test("search - generated") {
+    val cities = Source.fromResource("test-world-1.txt").getLines().mkString("\n").stripMargin
 
     val world = new WorldFactory().readInput(
       new StringReader(cities)
